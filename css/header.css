@@ -1,0 +1,52 @@
+header {
+  background-image: url("../src/img/bg-header.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: auto;
+  position: relative;
+  padding: 0 0 170px;
+}
+
+.logo {
+  background-image: url("../src/img/logo.png");
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  width: 200px;
+}
+
+.search-inputs {
+  text-align: center;
+}
+
+input,
+select {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  width: 220px;
+}
+
+input:first-child {
+  margin-right: 10px;
+}
+
+input[type=text],
+select {
+  color: #939393;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 50px;
+  color: #dc56c5;
+  text-align: center;
+  padding: 40px 0;
+}
