@@ -8,6 +8,14 @@ header {
   padding: 0 0 170px;
 }
 
+h1 {
+  font-weight: 900;
+  font-size: 50px;
+  color: #dc56c5;
+  text-align: center;
+  padding: 60px 0 40px;
+}
+
 .logo {
   background-image: url("../src/img/logo.png");
   position: absolute;
@@ -41,12 +49,4 @@ input:first-child {
 input[type=text],
 select {
   color: #939393;
-}
-
-h1 {
-  font-weight: 900;
-  font-size: 50px;
-  color: #dc56c5;
-  text-align: center;
-  padding: 40px 0;
 }
