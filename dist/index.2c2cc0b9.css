@@ -1,0 +1,60 @@
+header {
+  background-image: url("bg-header.73a156ee.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  padding: 0 0 170px;
+  position: relative;
+}
+
+h1 {
+  color: #dc56c5;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.logo {
+  background-image: url("logo.726d37a8.png");
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.search-inputs {
+  text-align: center;
+}
+
+input, select {
+  background-color: #fff3;
+  border: none;
+  border-radius: 20px;
+  width: 220px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+input:first-child {
+  margin-right: 10px;
+}
+
+input[type="text"], select {
+  color: #939393;
+}
+
+main {
+  background-image: url("bg-body.899ac601.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  padding: 0 0 170px;
+  position: relative;
+}
+/*# sourceMappingURL=index.2c2cc0b9.css.map */
