@@ -57,6 +57,8 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   height: auto;
-  position: relative;
-  padding: 0 0 170px;
+}
+
+.card {
+  color: white;
 }

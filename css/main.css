@@ -5,3 +5,7 @@ main {
   background-position: center;
   height: auto;
 }
+
+.card {
+  color: white;
+}
