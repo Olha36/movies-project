@@ -1,4 +1,4 @@
-const apiUrl = 'https://app.ticketmaster.com/discovery/v2/events?apikey=rkz2H7ZufO9M1MdG7fg5seDugGc8vR5V&locale=*';
+const apiUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=rkz2H7ZufO9M1MdG7fg5seDugGc8vR5V';
 
 function renderTemplate() {
   // Fetch the Handlebars template
