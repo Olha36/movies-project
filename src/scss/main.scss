@@ -54,3 +54,29 @@ main {
   font-weight: 700;
   color: #DC56C5;
 }
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-link, .pagination-ellipsis {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.pagination-link.active {
+  border: 2px solid #A03CDB;
+  background-color: #A03CDB;
+}
+
+.pagination-link:hover {
+  border-color: #A03CDB;
+  color: #A03CDB;
+}
