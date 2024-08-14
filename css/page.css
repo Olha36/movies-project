@@ -99,6 +99,13 @@ main {
 
 .card p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 16px;
   color: #cccccc;
+  margin: 2px 0;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #DC56C5;
 }

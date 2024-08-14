@@ -1,32 +1,33 @@
-const apiUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=rkz2H7ZufO9M1MdG7fg5seDugGc8vR5V';
+const apiUrl =
+  'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=rkz2H7ZufO9M1MdG7fg5seDugGc8vR5V';
 
 function renderTemplate() {
-  // Fetch the Handlebars template
-  fetch('/src/templates/cards.hbs') // Adjust the path based on your structure
-    .then(response => response.text())
-    .then(source => {
-      const template = Handlebars.compile(source); // Compile the Handlebars template
-      
-      // Fetch data from the API
+  fetch('/src/templates/cards.hbs')
+    .then((response) => response.text())
+    .then((source) => {
+      const template = Handlebars.compile(source);
+
       return fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          // Process the API data to match the expected structure
+        .then((response) => response.json())
+        .then((data) => {
           const cardsData = {
-            cards: data._embedded.events.map(event => ({
-              id: event.id,
-              imageUrl: event.images[0].url,
-              title: event.name,
-              time: event.dates.start.localTime,
-              country: event._embedded.venues[0].country.name
-            }))
+            cards: data._embedded.events.map((event) => {
+              const images = event.images;
+              const imageUrl = images[Math.floor(Math.random() * images.length)].url;
+              return {
+                id: event.id,
+                imageUrl: imageUrl,
+                title: event.name,
+                time: event.dates.start.localTime,
+                country: event._embedded.venues[0].country.name,
+              };
+            }),
           };
-          
-          // Render the HTML
+
           document.getElementById('cards-wrapper').innerHTML = template(cardsData);
         });
     })
-    .catch(error => console.error('Error loading template or API data:', error));
+    .catch((error) => console.error('Error loading template or API data:', error));
 }
 
 renderTemplate();
