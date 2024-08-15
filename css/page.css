@@ -74,38 +74,62 @@ main {
   text-align: center;
   color: #ffffff;
 }
-
 .card img {
   width: 180px;
   height: 227px;
   border-radius: 50px 0;
 }
-
-.frame {
+.card .frame {
   width: 153px;
-  border: 1px solid #dc56c5;
+  border: 1px solid #DC56C5;
   border-radius: 50px 0;
   height: 143px;
   position: absolute;
-  bottom: 57%;
+  bottom: 64%;
   left: 24%;
   opacity: 0.4;
 }
-
 .card h3 {
   margin: 10px 0 5px 0;
   font-size: 1.2rem;
 }
-
 .card p {
-  margin: 0;
+  margin: 5px 0;
   font-size: 16px;
   color: #cccccc;
-  margin: 5px 0;
 }
 
 .title {
   font-size: 16px;
   font-weight: 700;
   color: #DC56C5;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-link,
+.pagination-ellipsis {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  background-color: transparent;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pagination-link.active,
+.pagination-ellipsis.active {
+  border: 2px solid #A03CDB;
+  background-color: #A03CDB;
+  color: #ffffff;
+}
+.pagination-link:hover,
+.pagination-ellipsis:hover {
+  border-color: #A03CDB;
+  color: #A03CDB;
 }
