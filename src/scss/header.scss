@@ -1,3 +1,4 @@
+@import './variables.scss';
 header {
   background-image: url('../src/img/bg-header.png');
   background-size: cover;
@@ -6,42 +7,42 @@ header {
   height: auto;
   position: relative;
   padding: 0 0 170px;
-}
-h1 {
-  font-weight: 900;
-  font-size: 50px;
-  color: #dc56c5;
-  text-align: center;
-  padding: 40px 0;
-}
-.logo {
-  background-image: url('../src/img/logo.png');
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  width: 200px;
-}
-.search-inputs {
-  text-align: center;
-}
 
-input,
-select {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  width: 220px;
-}
-input:first-child {
-  margin-right: 10px;
-}
-input[type='text'],
-select {
-  color: #939393;
+  h1 {
+    font-weight: 900;
+    font-size: 50px;
+    color: $title-color;
+    text-align: center;
+    padding: 40px 0;
+  }
+  .logo {
+    background-image: url('../src/img/logo.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    width: 200px;
+  }
+  .search-inputs {
+    text-align: center;
+    input,
+    select {
+      background-color: $select-color;
+      border-radius: 50%;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      width: 220px;
+    }
+    input:first-child {
+      margin-right: 10px;
+    }
+    input[type='text'],
+    select {
+      color: $search-color;
+    }
+  }
 }
