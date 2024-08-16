@@ -1,0 +1,8 @@
+@mixin border-radius-style {
+  border-radius: 50px 0;
+}
+@mixin pagination-styles($border-color, $background-color, $text-color) {
+  border: 2px solid $border-color;
+  background-color: $background-color;
+  color: $text-color;
+}
