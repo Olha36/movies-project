@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.getElementById('cards-wrapper').innerHTML = template(cardsData);
 
-     
             const searchInput = document.querySelector('.search-inputs input[type="text"]');
 
             function queryEvent(e) {
@@ -61,12 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 trailing: false,
               })
             );
-          })
-          .catch((error) => console.error('Error loading template or API data:', error));
+          });
+        // .catch((error) => console.error('Error loading template or API data:', error));
       })
       .catch((error) => console.error('Error loading template or API data:', error));
   }
-
 
   renderEvents();
 });
