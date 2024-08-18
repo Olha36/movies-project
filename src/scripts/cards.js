@@ -1,11 +1,36 @@
-let postsData = [];
+let eventsData = [];
 let template;
 let currentPage = 1;
-const postsPerPage = 3;
+const eventsPerPage = 20;
+
 document.addEventListener('DOMContentLoaded', () => {
   const apiUrl =
     'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=rkz2H7ZufO9M1MdG7fg5seDugGc8vR5V';
 
+  function pagination() {
+    const start = (currentPage - 1) * eventsPerPage;
+    const end = start + eventsPerPage;
+    const paginatedEvents = eventsData.slice(start, end);
+
+    const paginatedData = { cards: paginatedEvents };
+    document.querySelector('#cards-wrapper').innerHTML = template(paginatedData);
+    
+  }
+
+  function showPreviousPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      pagination();
+    }
+  }
+
+  function showNextPage() {
+    const totalPages = Math.ceil(eventsData.length / eventsPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      pagination();
+    }
+  }
   async function renderEvents(query = '') {
     let searchUrl = apiUrl;
 
@@ -15,13 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const templateResponse = await fetch('/src/templates/cards.hbs');
+
       if (!templateResponse.ok) {
         throw new Error(`Failed to load template. Status: ${templateResponse.status}`);
       }
+
       const templateSource = await templateResponse.text();
       template = Handlebars.compile(templateSource);
 
       const response = await fetch(searchUrl);
+
       if (!response.ok) {
         throw new Error(`Network Error: ${response.status}`);
       }
@@ -32,28 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const cardsData = {
-        cards: data._embedded.events.map((event) => {
-          const images = event.images;
-          const imageUrl = images[Math.floor(Math.random() * images.length)].url;
-          return {
-            id: event.id,
-            imageUrl: imageUrl,
-            title: event.name,
-            time: event.dates.start.localTime,
-            country: event._embedded.venues[0].country.name,
-          };
-        }),
-      };
+      eventsData = data._embedded.events.map((event) => {
+        const images = event.images;
+        const imageUrl = images[Math.floor(Math.random() * images.length)].url;
+        return {
+          id: event.id,
+          imageUrl: imageUrl,
+          title: event.name,
+          time: event.dates.start.localTime,
+          country: event._embedded.venues[0].country.name,
+        };
+      });
 
-      postsData = cardsData;
-      console.log('Posts Data:', postsData);
+      console.log('Events Data:', eventsData);
 
-      if (template) {
-        document.getElementById('cards-wrapper').innerHTML = template(cardsData);
-      } else {
-        console.error('Template function is not defined.');
-      }
+      pagination();
 
       const searchInput = document.querySelector('.search-inputs input[type="text"]');
 
@@ -70,10 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
           trailing: false,
         })
       );
+
+      pagination();
+      document.getElementById('prev-page').addEventListener('click', showPreviousPage);
+  document.getElementById('next-page').addEventListener('click', showNextPage);
     } catch (error) {
       console.error('Error fetching or processing data:', error);
     }
   }
 
   renderEvents();
+  
 });
