@@ -1,0 +1,17 @@
+.pagination-list {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  color: #ffffff;
+}
+.pagination-list .pagination-item,
+.pagination-list .pagination-dots {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.pagination-list .pagination-item:hover {
+  background-color: #f0f0f0;
+}
+.pagination-list .pagination-dots {
+  color: #999;
+}
